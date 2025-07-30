@@ -3,6 +3,7 @@
 
 ### Basic fetch tests
 
+## GET PRODUCT
 ### Unfiltered search
 GET http://localhost:8000/products
 
@@ -15,3 +16,77 @@ GET http://localhost:8000/products?category=eleCtronics
 ### Non existing category case test
 GET http://localhost:8000/products?category=elec
 
+## POST ORDER
+### Empty order
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": []
+}
+
+### One item
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": [1]
+}
+
+### Multiple items
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": [1, 3]
+}
+
+### Reapeated items
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": [1, 1, 3]
+}
+
+### Non existing item
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": [5]
+}
+
+
+### Non existing item among valid
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "test",
+    "product_ids": [1, 5, 3]
+}
+
+### Invalid name
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": "",
+    "product_ids": [1, 3]
+}
+
+
+### Invalid name whitespace
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "customer_name": " ",
+    "product_ids": [1, 3]
+}
