@@ -1,5 +1,9 @@
 <template>
-    <div class="product" :id ="`product-${productId}`">
+    <div 
+        class="product" 
+        :class="{ selected: selected }" :id="`product-${productId}`"
+        @click="$emit('select',productId)"
+    >
         <h2>{{ name }}</h2>
         <div class="infos">
             <span>Category: {{ category }}</span>
@@ -9,11 +13,15 @@
 </template>
 
 <script setup>
-    defineProps({
+    const props = defineProps({
         productId : Number,
         name : String,
         category : String,
-        price : Number
+        price : Number,
+        selected: {
+            type: Boolean,
+            default: false
+        }
     })
 </script>
 
@@ -28,6 +36,16 @@
         padding-right: 10px;
         background-color: var(--color-background-soft);
         margin: 5px;
+        transition: .05s ease-in;
+        cursor: pointer;
+    }
+
+    .product:hover {
+        background-color: var(--color-background-mute);
+    }
+
+    .product.selected {
+        background-color: var(--color-background-mute-lighter);
     }
 
     .product h2 {
