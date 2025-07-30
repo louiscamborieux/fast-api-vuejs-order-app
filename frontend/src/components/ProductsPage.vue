@@ -2,8 +2,9 @@
 import productService from '../services/productService'
 import orderService from '../services/orderService'
 import ProductList from './ProductList.vue'
-
+import OrderItem from './OrderItem.vue';
 import {onMounted, ref, watch} from 'vue';
+
 const isLoading = ref(true);
 const failedLoading = ref(false)
 const productsData = ref([]);
@@ -12,6 +13,13 @@ const selected = ref([]);
 const isError = ref(false);
 const customer_name = ref('');
 const error_message = ref('');
+
+const title = ref("Product list")
+
+const itemsOrdered = ref([]);
+const totalPrice = ref(0);
+const orderId = ref('');
+const showOrder = ref(false);
 
 
 onMounted(async () => {
@@ -33,6 +41,12 @@ onMounted(async () => {
 
 })
 
+function handleBack() {
+  showOrder.value = false;
+  title.value = "Product list";
+  selected.value = [];
+}
+
 async function setFilter(category) {
   if (category.trim() == "") {
     category = undefined
@@ -45,6 +59,14 @@ async function setFilter(category) {
 async function handleOrder() {
   try {
     const res = await orderService.placeOrder(customer_name.value,selected.value);
+    const resData = res.data
+    itemsOrdered.value = resData.items;
+    totalPrice.value =resData.total_price;
+    orderId.value = resData.order_id;
+    showOrder.value =true;
+    console.log(resData.items);
+    title.value = "Order recap";
+    //orderId = res.data.
   }
   catch (error) {
     
@@ -56,7 +78,7 @@ async function handleOrder() {
         error_message.value = "Some selected items do not exist."
         break;
       default :
-        error_message.value = "An unknown error has occured ("+error.status+")"
+        error_message.value = "An unknown error has occured ("+error.status+" )"+error.message
     }
 
     console.log(error.status)
@@ -78,8 +100,15 @@ watch(isError, (newVal) => {
 
 <template>
   <main>
-    <h1>Product List</h1>
+    <h1>{{title}}</h1>
       <div v-if="isLoading">Loading...</div>
+
+      <div v-else-if="showOrder">
+        <OrderItem :items="itemsOrdered" :order-id="orderId" :total-price="totalPrice" />
+        <div class="centered">
+          <button  id="back-list" class="button" @click="handleBack">Back to product list</button>
+        </div>
+      </div>
 
       <div v-else-if="!failedLoading">
         <div id="product-category-filter-div">
@@ -101,11 +130,12 @@ watch(isError, (newVal) => {
             <input v-model="customer_name" type="text" required />
           </div>
 
-          <button type="submit" id="submit-order">Place Order</button>
+          <button type="submit" id="submit-order" class="button">Place Order</button>
         </form>
 
         
       </div>
+
       <div v-if="isError" id="error_div">{{ error_message  }} </div>
 
   </main>
@@ -147,7 +177,7 @@ label {
     padding: 12px;
 }
 
-#order-form input[type=text],  #order-form button[type=submit]{
+#order-form input[type=text],  .button{
   min-width: 200px;
   min-height: 50px;
   background-color: var(--color-background-soft);
@@ -156,7 +186,7 @@ label {
   font-size: large;
 }
 
-#order-form #submit-order:hover {
+.button:hover {
   background-color: var(--color-background-mute);
 }
 
