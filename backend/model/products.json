@@ -1,0 +1,21 @@
+[
+    {
+        "id" : 1,
+        "name" : "phone Case",
+        "category" : "accessories"
+    },
+    {
+        "id" : 2,
+        "name" : "airTag",
+        "category" : "electronics"
+    },
+    {
+        "id" : 3,
+        "name" : "toothPaste",
+        "category" : "care"
+    },
+    {
+        "id" : 4,
+        "name" : ""
+    }
+]
