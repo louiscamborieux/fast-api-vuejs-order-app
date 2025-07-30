@@ -1,0 +1,17 @@
+# HTTP Request collection for quick tests using Rest Client VSCode extension 
+# (Swagger UI works too)
+
+### Basic fetch tests
+
+### Unfiltered search
+GET http://localhost:8000/products
+
+### Existing category
+GET http://localhost:8000/products?category=electronics
+
+### Existing category case test (should return empty array)
+GET http://localhost:8000/products?category=eleCtronics
+
+### Non existing category case test
+GET http://localhost:8000/products?category=elec
+

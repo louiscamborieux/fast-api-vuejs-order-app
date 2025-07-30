@@ -1,21 +1,26 @@
 [
     {
         "id" : 1,
-        "name" : "phone Case",
+        "name" : "phone case",
+        "price" : 12.4,
         "category" : "accessories"
     },
     {
         "id" : 2,
         "name" : "airTag",
+        "price" : 28.61,
         "category" : "electronics"
     },
     {
         "id" : 3,
         "name" : "toothPaste",
+        "price" : 9.81,
         "category" : "care"
     },
     {
         "id" : 4,
-        "name" : ""
+        "name" : "gaming laptop",
+        "price" : 1348.36,
+        "category" : "electronics"
     }
 ]
