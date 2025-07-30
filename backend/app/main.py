@@ -1,12 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from config import PRODUCTS_FILE
+from .config import PRODUCTS_FILE
 
 import json
 import uuid
 
 app = FastAPI()
 
+#global orders variable
+orders = []
 class Order(BaseModel):
      customer_name: str
      product_ids: list[int]
@@ -34,6 +36,7 @@ async def productsGet(category : str = None):
 async def productsOrder(order: Order):
     if (order.customer_name == None or order.customer_name.strip() == ""):
         raise HTTPException(400, "custommer name must not be empty")
+    global orders
     totalPrice = 0
     items = []
     try :
@@ -46,13 +49,18 @@ async def productsOrder(order: Order):
                     raise HTTPException(404, f"product {orderItemId} was not found")
                 totalPrice += productFound["price"]
                 items.append(productFound)
-            return {
+            order =  {
                 "items" : items,
-                "total price" : totalPrice,
-                "order id" : uuid.uuid4()
+                "total_price" : totalPrice,
+                "order_id" : uuid.uuid4()
             }
+            orders.append(order)
+            return order
         
     except OSError as e :
             print ("error:", str(e))
             raise HTTPException(status_code=500, detail="error getting data: "+ str(e)) 
     
+@app.get("/orders")
+async def getAllOrders():
+    return orders

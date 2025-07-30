@@ -41,7 +41,7 @@ Content-Type: application/json
 
 {
     "customer_name": "test",
-    "product_ids": [1, 3]
+    "product_ids": [1, 3, 2]
 }
 
 ### Reapeated items
@@ -90,3 +90,6 @@ Content-Type: application/json
     "customer_name": " ",
     "product_ids": [1, 3]
 }
+
+### Get all orders (storage is not persistent so it should be empty if launched first)
+GET http://localhost:8000/orders
