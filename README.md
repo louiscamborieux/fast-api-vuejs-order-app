@@ -8,27 +8,33 @@ The VueJs application uses axios to display items provided by a REST API deliver
 ## Features
 1. Get item list and display names, prices and categories. The items can be filtered by category using a query parameter in the API (/products?category=...)
 2. Place order by selecting items with a given custommer name, the backend computes a total price then return it to the frontend, which displays it
-3. Order history, list every order made, in the current version orders are stored in memory and are cleared every time the backend reboot
+3. Order history, list every order made, orders are stored in backend/store/orders.json, this file may be create if it does not already exist.
 
 # Architecture 
 
 ## backend
 
 /app/ the logic and algortihm used in the application
+
 /app/main.py contains every endpoint implementations
+
 /app/config.py contains variable that help main load JSON files used to store products data
 
 /model/ Where the data is stored
+
 /model/products.json contains all product's data (name, price, category, id)
 
 /tests/ Unit tests for the backend
+
 /tests/test_product.py tests for /product GET endpoint
+
 /tests/test_order.py tests for /order POST endpoint
 
 ## frontend
 This frontend is derived from standard [VueJS template](https://vuejs.org/guide/quick-start)
 
 /public every static images and icons
+
 /src main directory containing the application
 
 /src/components VueJS components and icons displayed to the user
@@ -60,11 +66,12 @@ This frontend is derived from standard [VueJS template](https://vuejs.org/guide/
 /main.js mount Vue app and router and launch the application.
 
 index.html first loaded file, import application entrypoint
+
 package.json list project dependencies, those are installed using npm install
+
 package-lock.json list exact dependencies tree to ensure reproductivity
+
 vite.config.js Configuration file, contains proxy settings to connect to the API 
-
-
 
 # How to start the application
 
