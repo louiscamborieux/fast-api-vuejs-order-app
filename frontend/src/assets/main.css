@@ -13,8 +13,11 @@ header {
   left: 0;
   right: 0;
   padding: 0;
+}
 
-
+h1 {
+    font-size: 45px;
+    text-align: center;
 }
 
 a,
@@ -41,7 +44,6 @@ a,
     padding: 0 2rem;
   }
 }
-
 
 #error_div {
   background-color: #ba3434;

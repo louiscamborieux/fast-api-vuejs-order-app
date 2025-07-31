@@ -3,9 +3,9 @@ import ProductsPage  from '@/components/ProductsPage.vue'
 import OrdersPage from '@/components/OrdersPage.vue';
 
 const routes = [
-    {path: '/', component: ProductsPage},
-    {path: '/products', component: ProductsPage},
-    {path: '/orders', component: OrdersPage}
+    {path: '/products', component: ProductsPage, alias: '/'},
+    {path: '/orders', component: OrdersPage},
+    {path: '/:pathMatch(.*)*', redirect: '/'}
 ]
 
 const router = createRouter({

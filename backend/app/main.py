@@ -18,12 +18,6 @@ except (OSError, json.JSONDecodeError):
 class Order(BaseModel):
      customer_name: str
      product_ids: list[int]
-
-#Hello world enpoint for testing
-@app.get("/hello")
-async def root():
-    return  {"message": "Hello World"}
-
 @app.get("/products")
 async def productsGet(category : str = None):
     try :
@@ -62,7 +56,7 @@ async def productsOrder(order: Order):
             }
             orders.append(order)
             with open(ORDERS_FILE, "w") as orders_file:
-                 json.dump(orders,orders_file, indent=4)
+                json.dump(orders,orders_file, indent=4)
             return order
         
     except OSError as e :

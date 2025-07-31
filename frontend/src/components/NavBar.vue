@@ -47,5 +47,4 @@
     .link {
         min-width: 80px;
     }
-
 </style>

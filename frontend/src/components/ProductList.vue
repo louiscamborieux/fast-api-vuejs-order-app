@@ -20,15 +20,15 @@
 import ProductItem from './ProductItem.vue';
 
 const {items, selected } = defineProps({
-        items : {
-            type: Array,
-            required: true
-        },
-        selected: {
+    items : {
         type: Array,
         required: true
-        }
-    })
+    },
+    selected: {
+        type: Array,
+        required: true
+    }
+})
 
 const emit = defineEmits(['update:selected'])
 
