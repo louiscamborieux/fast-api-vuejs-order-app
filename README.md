@@ -26,6 +26,37 @@ using axios
 /tests/test_product.py tests for /product GET endpoint
 /tests/test_order.py tests for /order POST endpoint
 
+## frontend
+This frontend is derived from standard [VueJS template](https://vuejs.org/guide/quick-start)
+
+/public every static images and icons
+/src main directory containing the application
+    /components VueJS components and icons displayed to the user
+        /NavBar.vue navigation bar used to navigate between sections
+        /OrderItem.vue Order recap
+        /OrdersPage.vue List every order fetched from the API
+        /ProductItem.vue Product card with its informations displayed
+        /ProductList.vue List of ProductItem as well as a selected item list
+        /ProductPage.vue Handle display for products list and placing an order
+        /icons/*.vue Default used in the applications
+
+    /router
+        /index.js route logic binding URL to components
+
+    /services Handle logic behind fetching data from the API 
+        /orderService.js handle axios call to order related endpoints (/order and /orders)
+        /orderService.js handle axios call to product related endpoints (/products)
+
+    /App.vue application entrypoint, load router selected view as well as navigation bar
+    /main.js mount Vue app and router and launch the application.
+
+index.html first loaded file, import application entrypoint
+package.json list project dependencies, those are installed using npm install
+package-lock.json list exact dependencies tree to ensure reproductivity
+vite.config.js Configuration file, contains proxy settings to connect to the API 
+
+
+
 # How to start the application
 
 ## 1. Install Dependencies
