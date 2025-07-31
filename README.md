@@ -94,15 +94,17 @@ pip install pytest
 
 ## 3. Start the application
 
-1. Start backend : in /backend do
+1. To start the backend go in /backend and type:
 ```
 fastapi dev app/main.py
 ```
 Now the backend will start listening on port 8000
-2. Start front-end : in /frontend do
+
+2. In another terminal go in /frontend and start type :
 ```
 npm run dev
 ```
 
-And now you may access the application by connecting to localhost:5173
-A swagger UI is also available at localhost:8000/docs
+And now the application should be accessible by connecting to localhost:5173
+
+A swagger UI for the backend is also available at localhost:8000/docs
