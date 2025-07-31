@@ -59,6 +59,7 @@ async function setFilter(category) {
 async function handleOrder() {
   try {
     const res = await orderService.placeOrder(customer_name.value,selected.value);
+    isError.value = false;
     const resData = res.data
     itemsOrdered.value = resData.items;
     totalPrice.value =resData.total_price;
@@ -134,8 +135,6 @@ async function handleOrder() {
 
 <style scoped>
 
-
-
 main {
     width: 100%;
     padding-bottom: 12px;
@@ -172,6 +171,7 @@ label {
 
 .button:hover {
   background-color: var(--color-background-mute);
+  cursor: pointer;
 }
 
 #order-form div {
@@ -179,6 +179,7 @@ label {
 }
 
 .category-select{
+  cursor: pointer;
   min-width: 200px;
   min-height: 50px;
   background-color: var(--color-background-soft);
@@ -191,8 +192,8 @@ label {
     background-color: var(--color-background-soft);
     font-size: large;
     border-radius: 8px;
-
-}
+  }
+  
 
 h1 {
     font-size: 45px;
