@@ -41,3 +41,13 @@ a,
     padding: 0 2rem;
   }
 }
+
+
+#error_div {
+  background-color: #ba3434;
+  height: 50px;
+  padding: 5px;
+
+  color: var(--vt-c-white);
+  font-weight: bold;
+}

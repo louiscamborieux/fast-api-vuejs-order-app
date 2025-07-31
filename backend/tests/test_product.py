@@ -10,7 +10,7 @@ def test_product_get_unfiltered():
     data = response.json()
 
     assert isinstance(data,list)
-    assert len(data) == 4
+    assert len(data) == 20
 
 def test_product_get_filtered():
     response = client.get("/products?category=electronics")
@@ -18,7 +18,7 @@ def test_product_get_filtered():
     data = response.json()
 
     assert isinstance(data,list)
-    assert len(data) == 2
+    assert len(data) == 8
 
 def test_product_get_filtered_notfound():
     response = client.get("/products?category=elec")

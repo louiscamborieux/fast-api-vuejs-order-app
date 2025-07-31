@@ -1,26 +1,122 @@
 [
     {
-        "id" : 1,
-        "name" : "phone case",
-        "price" : 12.4,
-        "category" : "accessories"
+        "id": 1,
+        "name": "phone case",
+        "price": 12.4,
+        "category": "accessories"
     },
     {
-        "id" : 2,
-        "name" : "airTag",
-        "price" : 28.61,
-        "category" : "electronics"
+        "id": 2,
+        "name": "Air Tag",
+        "price": 28.61,
+        "category": "electronics"
     },
     {
-        "id" : 3,
-        "name" : "toothPaste",
-        "price" : 9.81,
-        "category" : "care"
+        "id": 3,
+        "name": "tooth paste",
+        "price": 9.81,
+        "category": "care"
     },
     {
-        "id" : 4,
-        "name" : "gaming laptop",
-        "price" : 1348.36,
-        "category" : "electronics"
+        "id": 4,
+        "name": "gaming laptop",
+        "price": 1348.36,
+        "category": "electronics"
+    },
+    {
+        "id": 5,
+        "name": "wireless mouse",
+        "price": 24.99,
+        "category": "electronics"
+    },
+    {
+        "id": 6,
+        "name": "notebook",
+        "price": 3.49,
+        "category": "stationery"
+    },
+    {
+        "id": 7,
+        "name": "sunglasses",
+        "price": 45.0,
+        "category": "accessories"
+    },
+    {
+        "id": 8,
+        "name": "shampoo",
+        "price": 7.85,
+        "category": "care"
+    },
+    {
+        "id": 9,
+        "name": "bluetooth speaker",
+        "price": 62.3,
+        "category": "electronics"
+    },
+    {
+        "id": 10,
+        "name": "backpack",
+        "price": 39.99,
+        "category": "accessories"
+    },
+    {
+        "id": 11,
+        "name": "hand cream",
+        "price": 5.75,
+        "category": "care"
+    },
+    {
+        "id": 12,
+        "name": "power bank",
+        "price": 29.5,
+        "category": "electronics"
+    },
+    {
+        "id": 13,
+        "name": "USB-C cable",
+        "price": 11.2,
+        "category": "electronics"
+    },
+    {
+        "id": 14,
+        "name": "fitness tracker",
+        "price": 79.99,
+        "category": "electronics"
+    },
+    {
+        "id": 15,
+        "name": "water bottle",
+        "price": 15.0,
+        "category": "accessories"
+    },
+    {
+        "id": 16,
+        "name": "lip balm",
+        "price": 3.2,
+        "category": "care"
+    },
+    {
+        "id": 17,
+        "name": "stylus pen",
+        "price": 17.49,
+        "category": "electronics"
+    },
+    {
+        "id": 18,
+        "name": "desk lamp",
+        "price": 26.99,
+        "category": "home"
+    },
+    {
+        "id": 19,
+        "name": "wall calendar",
+        "price": 9.0,
+        "category": "stationery"
+    },
+    {
+        "id": 20,
+        "name": "travel adapter",
+        "price": 13.65,
+        "category": "accessories"
     }
 ]

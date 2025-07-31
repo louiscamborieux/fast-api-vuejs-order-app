@@ -3,7 +3,7 @@ import productService from '../services/productService'
 import orderService from '../services/orderService'
 import ProductList from './ProductList.vue'
 import OrderItem from './OrderItem.vue';
-import {onMounted, ref, watch} from 'vue';
+import {onMounted, ref} from 'vue';
 
 const isLoading = ref(true);
 const failedLoading = ref(false)
@@ -87,15 +87,6 @@ async function handleOrder() {
 
   
 }
-
-watch(selected, (newVal) => {
-    console.log('Selected IDs:', newVal, 'Length:', newVal.length);
-})
-
-
-watch(isError, (newVal) => {
-    console.log(newVal)
-})
 </script>
 
 <template>
@@ -143,14 +134,7 @@ watch(isError, (newVal) => {
 
 <style scoped>
 
-#error_div {
-  background-color: #ba3434;
-  height: 50px;
-  padding: 5px;
 
-  color: var(--vt-c-white);
-  font-weight: bold;
-}
 
 main {
     width: 100%;

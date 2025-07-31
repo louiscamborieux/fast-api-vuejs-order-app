@@ -9,5 +9,7 @@ export default { placeOrder(customer_name, ids) {
         customer_name : customer_name,
         product_ids : ids
     });
+}, getAllOrders() {
+    return axios.get("/api/orders");
 }
 }
