@@ -3,8 +3,7 @@
 This project is a simple project that use Python FastAPI framework as
 backend and VueJs as frontend
 
-The VueJs application display items provided by a REST API delivered by the backend
-using axios
+The VueJs application uses axios to display items provided by a REST API delivered by the backend
 
 ## Features
 1. Get item list and display names, prices and categories. The items can be filtered by category using a query parameter in the API (/products?category=...)
@@ -13,14 +12,14 @@ using axios
 
 # Architecture 
 
-## /backend
+## backend
 
 /app/ the logic and algortihm used in the application
-    /main.py contains every endpoint implementations
-    /config.py contains variable that help main load JSON files used to store products data
+/app/main.py contains every endpoint implementations
+/app/config.py contains variable that help main load JSON files used to store products data
 
 /model/ Where the data is stored
-      /products.json contains all product's data (name, price, category, id)
+/model/products.json contains all product's data (name, price, category, id)
 
 /tests/ Unit tests for the backend
 /tests/test_product.py tests for /product GET endpoint
@@ -31,24 +30,34 @@ This frontend is derived from standard [VueJS template](https://vuejs.org/guide/
 
 /public every static images and icons
 /src main directory containing the application
-    /components VueJS components and icons displayed to the user
-        /NavBar.vue navigation bar used to navigate between sections
-        /OrderItem.vue Order recap
-        /OrdersPage.vue List every order fetched from the API
-        /ProductItem.vue Product card with its informations displayed
-        /ProductList.vue List of ProductItem as well as a selected item list
-        /ProductPage.vue Handle display for products list and placing an order
-        /icons/*.vue Default used in the applications
 
-    /router
-        /index.js route logic binding URL to components
+/src/components VueJS components and icons displayed to the user
 
-    /services Handle logic behind fetching data from the API 
-        /orderService.js handle axios call to order related endpoints (/order and /orders)
-        /orderService.js handle axios call to product related endpoints (/products)
+/src/components/NavBar.vue navigation bar used to navigate between sections
 
-    /App.vue application entrypoint, load router selected view as well as navigation bar
-    /main.js mount Vue app and router and launch the application.
+/src/components/OrderItem.vue Order recap
+
+/src/components/OrdersPage.vue List every order fetched from the API
+
+/src/components/ProductItem.vue Product card with its informations displayed
+
+/src/components/ProductList.vue List of ProductItem as well as a selected item list
+
+/src/components/ProductPage.vue Handle display for products list and placing an order
+
+/src/components/icons/*.vue Default used in the applications
+
+/router/index.js route logic binding URL to Vue components
+
+/services Handle logic behind fetching data from the API 
+
+/services/orderService.js handle axios call to order related endpoints (/order and /orders)
+
+/services/orderService.js handle axios call to product related endpoints (/products)
+
+/App.vue application entrypoint, load router selected view as well as navigation bar
+
+/main.js mount Vue app and router and launch the application.
 
 index.html first loaded file, import application entrypoint
 package.json list project dependencies, those are installed using npm install
